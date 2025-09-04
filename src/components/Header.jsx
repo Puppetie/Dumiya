@@ -172,10 +172,10 @@ const Header = ({ activeSection, setActiveSection }) => {
       </nav>
 
       {/* Theme Toggle Button - Fixed positioning */}
-      <div className="fixed left-0 bottom-8 z-[60] hidden lg:block">
+      <div className="fixed top-4 right-4 z-[60] hidden lg:block">
         <button
           onClick={toggleTheme}
-          className="theme-button w-16 h-12 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 dark:from-ff-red-600 dark:to-ff-pink-600 rounded-br-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none"
+          className="theme-button w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 dark:from-ff-red-600 dark:to-ff-pink-600 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg"
           title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         >
