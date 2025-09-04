@@ -477,6 +477,75 @@ html {
   background-color: rgba(30, 41, 59, 0.95);
 }
 
+/* Light mode background for icons */
+.bg-slate-100 {
+  background-color: #f1f5f9;
+}
+
+.dark .bg-slate-100 {
+  background-color: rgba(30, 41, 59, 0.9);
+}
+
+/* Card backgrounds for all components */
+.bg-white\/80 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dark .bg-slate-800\/80 {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+.bg-white\/95 {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark .bg-ff-slate-800\/95 {
+  background-color: rgba(30, 41, 59, 0.95);
+}
+
+/* Footer background classes */
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Icon inversion for FF and Omori */
+.icon-invert-light {
+  filter: invert(0);
+}
+
+.dark .icon-invert-light {
+  filter: invert(1);
+}
+
+/* Tooltip backgrounds */
+.bg-slate-800 {
+  background-color: #1e293b;
+}
+
+.dark .bg-slate-900 {
+  background-color: #0f172a;
+}
+
+.border-slate-700 {
+  border-color: #334155;
+}
+
+.dark .border-slate-600 {
+  border-color: #475569;
+}
+
+.border-t-slate-800 {
+  border-top-color: #1e293b;
+}
+
+.dark .border-t-slate-900 {
+  border-top-color: #0f172a;
+}
+
 /* ===== NAVIGATION & TOOLTIP STYLES ===== */
 .nav-item {
   position: relative;
@@ -756,6 +825,42 @@ button:not(.nav-button):not(.theme-button):active {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Use transform and opacity for better performance */
+.animate-float-slow,
+.animate-float-medium,
+.animate-float-fast {
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Optimize hover effects */
+.hover\:scale-110:hover {
+  transform: scale(1.1) translateZ(0);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05) translateZ(0);
+}
+
+/* Optimize backdrop blur for better performance */
+.backdrop-blur-sm {
+  will-change: backdrop-filter;
+}
+
+/* Optimize transitions */
+.transition-all {
+  transition-property: transform, opacity, background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 /* ===== CUSTOM ANIMATION DELAYS ===== */

@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import About from './components/About'
-import Gaming from './components/Gaming'
-import Art from './components/Art'
-import ShowsMovies from './components/ShowsMovies'
-import Experience from './components/Experience'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+
+// Lazy load components for better performance
+const About = lazy(() => import('./components/About'))
+const Gaming = lazy(() => import('./components/Gaming'))
+const Art = lazy(() => import('./components/Art'))
+const ShowsMovies = lazy(() => import('./components/ShowsMovies'))
+const Experience = lazy(() => import('./components/Experience'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   
 
-  // Mouse tracking for glow effect
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`)
-      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`)
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
 
   return (
     <ThemeProvider>
@@ -36,22 +28,36 @@ function App() {
         {/* Main content with proper left margin for desktop */}
         <main className="lg:ml-16 relative z-10">
           <Hero id="home" setActiveSection={setActiveSection} />
-          <About id="about" setActiveSection={setActiveSection} />
-          <Gaming id="gaming" setActiveSection={setActiveSection} />
-          <Art id="art" setActiveSection={setActiveSection} />
-          <ShowsMovies id="shows-movies" setActiveSection={setActiveSection} />
-          <Experience id="experience" setActiveSection={setActiveSection} />
-          <Contact id="contact" setActiveSection={setActiveSection} />
+          <Suspense fallback={<LoadingSpinner />}>
+            <About id="about" setActiveSection={setActiveSection} />
+          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Gaming id="gaming" setActiveSection={setActiveSection} />
+          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Art id="art" setActiveSection={setActiveSection} />
+          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ShowsMovies id="shows-movies" setActiveSection={setActiveSection} />
+          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Experience id="experience" setActiveSection={setActiveSection} />
+          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Contact id="contact" setActiveSection={setActiveSection} />
+          </Suspense>
         </main>
         
-        <Footer />
+        <Suspense fallback={<div className="h-32" />}>
+          <Footer />
+        </Suspense>
       </div>
     </ThemeProvider>
   )
 }
 
-// Background elements component for better organization
-function BackgroundElements() {
+// Background elements component for better organization - memoized for performance
+const BackgroundElements = React.memo(function BackgroundElements() {
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Base gradient */}
@@ -88,16 +94,17 @@ function BackgroundElements() {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-ff-gold-200 to-ff-red-200 dark:from-ff-gold-700 dark:to-ff-red-700 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
       </div>
       
-      {/* Mouse glow effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute w-8 h-8 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 rounded-full blur-md opacity-60 animate-pulse transform -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out" 
-          style={{
-            left: 'var(--mouse-x, 50%)',
-            top: 'var(--mouse-y, 50%)',
-            pointerEvents: 'none'
-          }}
-        />
+    </div>
+  )
+})
+
+// Loading spinner component for lazy loading
+function LoadingSpinner() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="relative">
+        <div className="w-16 h-16 border-4 border-ff-red-200 border-t-ff-red-500 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-ff-pink-500 rounded-full animate-spin animation-delay-500"></div>
       </div>
     </div>
   )
