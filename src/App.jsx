@@ -15,6 +15,8 @@ function App() {
   
   // Debug logging
   console.log('App component rendered')
+  console.log('Environment:', process.env.NODE_ENV)
+  console.log('User agent:', navigator.userAgent)
 
   // Mouse tracking for glow effect
   useEffect(() => {
@@ -33,6 +35,11 @@ function App() {
         {/* Debug indicator */}
         <div className="fixed top-4 right-4 bg-green-500 text-white px-2 py-1 rounded text-xs z-50">
           App Loaded
+        </div>
+        
+        {/* Simple test content */}
+        <div className="fixed top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded text-xs z-50">
+          React Working
         </div>
         {/* Gaming-themed background */}
         <BackgroundElements />
