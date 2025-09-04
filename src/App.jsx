@@ -13,10 +13,6 @@ import Footer from './components/Footer'
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   
-  // Debug logging
-  console.log('App component rendered')
-  console.log('Environment:', process.env.NODE_ENV)
-  console.log('User agent:', navigator.userAgent)
 
   // Mouse tracking for glow effect
   useEffect(() => {
@@ -32,15 +28,6 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-gradient-to-br from-ff-slate-50 via-ff-red-50 to-ff-pink-100 dark:from-ff-slate-900 dark:via-ff-red-900 dark:to-ff-pink-900 text-ff-slate-800 dark:text-ff-slate-200 font-body transition-colors duration-300 relative overflow-hidden">
-        {/* Debug indicator */}
-        <div className="fixed top-4 right-4 bg-green-500 text-white px-2 py-1 rounded text-xs z-50">
-          App Loaded
-        </div>
-        
-        {/* Simple test content */}
-        <div className="fixed top-4 left-4 bg-blue-500 text-white px-2 py-1 rounded text-xs z-50">
-          React Working
-        </div>
         {/* Gaming-themed background */}
         <BackgroundElements />
         
