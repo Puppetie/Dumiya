@@ -58,8 +58,8 @@ portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd portfolio
+   git clone https://github.com/Puppetie/Dumiya.git
+   cd Dumiya
    ```
 
 2. **Install dependencies**
