@@ -47,6 +47,10 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+// Debug logging
+console.log('Main.jsx loaded successfully')
+console.log('Root element:', document.getElementById('root'))
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
