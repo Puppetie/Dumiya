@@ -26,13 +26,7 @@ export default defineConfig({
     // Disable sourcemaps in production for better performance
     sourcemap: process.env.NODE_ENV === 'development',
     // Enable minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
+    minify: 'esbuild',
     rollupOptions: {
       external: (id) => {
         // Exclude native binary files from bundling
@@ -88,7 +82,7 @@ export default defineConfig({
   define: {
     global: 'globalThis'
   },
-  // Enable gzip compression
+  // Enable gzip compression and drop console logs in production
   esbuild: {
     drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : []
   }
