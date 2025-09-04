@@ -95,12 +95,12 @@ const Hero = ({ setActiveSection }) => {
               <div className="relative w-full h-full">
                 {/* Persona Logo */}
                 <div className="absolute top-8 left-8 w-16 h-16 bg-white/90 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-slow hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-red-200/30 dark:border-ff-red-600/30">
-                  <img src="/src/assets/personalogo.png" alt="Persona" className="w-12 h-12 object-contain group-hover:animate-pulse" />
+                  <img src="/assets/PersonaLogo.png" alt="Persona" className="w-12 h-12 object-contain group-hover:animate-pulse" />
                 </div>
                 
                 {/* Deltarune Logo */}
                 <div className="absolute top-16 right-12 w-14 h-14 bg-white/90 dark:bg-slate-800/90 rounded-lg flex items-center justify-center shadow-lg animate-float-medium hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-pink-200/30 dark:border-ff-pink-600/30">
-                  <img src="/src/assets/deltaruneicon.png" alt="Deltarune" className="w-10 h-10 object-contain group-hover:animate-bounce" />
+                  <img src="/assets/DeltaruneIcon.png" alt="Deltarune" className="w-10 h-10 object-contain group-hover:animate-bounce" />
                 </div>
                 
                 {/* Final Fantasy Logo */}
