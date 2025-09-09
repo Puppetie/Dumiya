@@ -134,8 +134,8 @@ const Header = ({ activeSection, setActiveSection }) => {
                     <div className="flex flex-col items-center">
                       <span className={`material-icons text-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         activeSection === item.id 
-                          ? 'scale-125 text-ff-red-500 dark:text-ff-red-400' 
-                          : 'text-gray-700 dark:text-gray-300 group-hover:scale-125 group-hover:text-ff-red-400 dark:group-hover:text-ff-red-300'
+                          ? 'scale-125 opacity-100 text-ff-red-500 dark:text-ff-red-400' 
+                          : 'opacity-50 text-ff-slate-700 dark:text-ff-slate-300 group-hover:opacity-100 group-hover:scale-125 group-hover:text-ff-red-400 dark:group-hover:text-ff-red-300'
                       }`}>{item.icon}</span>
                     </div>
                   </div>
@@ -258,7 +258,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                     aria-label={`Navigate to ${item.label} section`}
                   >
                     <span className={`material-icons transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      activeSection === item.id ? 'scale-110 text-ff-red-500 dark:text-ff-red-400' : ''
+                      activeSection === item.id ? 'scale-110 opacity-100 text-ff-red-500 dark:text-ff-red-400' : 'opacity-60 text-ff-slate-700 dark:text-ff-slate-300 hover:opacity-100'
                     }`}>{item.icon}</span>
                     <span className={`font-medium ${
                       activeSection === item.id ? 'font-bold' : ''
