@@ -64,7 +64,7 @@ const ShowsMovies = ({ setActiveSection }) => {
             
             {/* Show Cards */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-red-200/30 dark:border-ff-red-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-red card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">tv</span>
@@ -76,7 +76,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-pink-200/30 dark:border-ff-pink-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-pink card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">movie</span>
@@ -88,7 +88,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-gold-200/30 dark:border-ff-gold-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-gold card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">theaters</span>
@@ -110,7 +110,7 @@ const ShowsMovies = ({ setActiveSection }) => {
             
             {/* Movie Cards */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-purple-200/30 dark:border-ff-purple-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-purple card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-purple-500 to-ff-purple-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">movie_filter</span>
@@ -122,7 +122,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-blue-200/30 dark:border-ff-blue-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-blue card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-blue-500 to-ff-blue-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">auto_awesome</span>
@@ -134,7 +134,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-green-200/30 dark:border-ff-green-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-green card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-green-500 to-ff-green-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">star</span>
@@ -156,7 +156,7 @@ const ShowsMovies = ({ setActiveSection }) => {
             
             {/* Genre Tags */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-red-200/30 dark:border-ff-red-600/30">
+              <div className="card card-padding card-border card-border-red">
                 <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 mb-3">Favorite Genres</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-ff-red-100 dark:bg-ff-red-900/30 text-ff-red-700 dark:text-ff-red-300 rounded-full text-sm font-mono">Anime</span>
@@ -167,7 +167,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-pink-200/30 dark:border-ff-pink-600/30">
+              <div className="card card-padding card-border card-border-pink">
                 <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 mb-3">Creative Influence</h4>
                 <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400 leading-relaxed">
                   These shows and movies inspire my art, storytelling, and creative projects. 

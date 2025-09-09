@@ -31,6 +31,23 @@
     <meta name="description" content="Dumiya's Portfolio - Gaming and Art themed portfolio showcasing creative work and interests">
     <meta name="theme-color" content="#ef4444">
     
+    <!-- Inline theme init to avoid flash and set correct theme ASAP -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = saved ? saved === 'dark' : prefersDark;
+          var root = document.documentElement;
+          if (isDark) root.classList.add('dark'); else root.classList.remove('dark');
+        } catch (e) {
+          // If localStorage not available, fall back to system preference
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+          }
+        }
+      })();
+    </script>
     
     <title>Dumiya's Portfolio</title>
   </head>

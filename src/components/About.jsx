@@ -77,7 +77,7 @@ const About = ({ setActiveSection }) => {
             {/* Skill Cards */}
             <div className="space-y-4">
               {skills.map((skill, index) => (
-                <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-red-200/30 dark:border-ff-red-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+                <div key={index} className="card card-padding card-border card-border-red card-hover">
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{skill.name}</h4>
                     <span className="text-sm text-ff-red-600 dark:text-ff-red-400 font-mono">{skill.level}%</span>
@@ -101,7 +101,7 @@ const About = ({ setActiveSection }) => {
             
             {/* Journey Cards */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-pink-200/30 dark:border-ff-pink-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-pink card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">sports_esports</span>
@@ -116,7 +116,7 @@ const About = ({ setActiveSection }) => {
                 </p>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-purple-200/30 dark:border-ff-purple-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-purple card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-purple-500 to-ff-purple-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">palette</span>
@@ -131,7 +131,7 @@ const About = ({ setActiveSection }) => {
                 </p>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-gold-200/30 dark:border-ff-gold-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-gold card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">auto_awesome</span>
@@ -156,22 +156,22 @@ const About = ({ setActiveSection }) => {
             
             {/* Stats Cards */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-red-200/30 dark:border-ff-red-600/30 text-center">
+              <div className="card card-padding card-border card-border-red card-hover text-center">
                 <div className="text-3xl font-bold text-ff-red-600 dark:text-ff-red-400 mb-2">5+</div>
                 <div className="text-sm text-ff-slate-600 dark:text-ff-slate-400">Years Gaming</div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-purple-200/30 dark:border-ff-purple-600/30 text-center">
+              <div className="card card-padding card-border card-border-purple card-hover text-center">
                 <div className="text-3xl font-bold text-ff-purple-600 dark:text-ff-purple-400 mb-2">3+</div>
                 <div className="text-sm text-ff-slate-600 dark:text-ff-slate-400">Years Art</div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-blue-200/30 dark:border-ff-blue-600/30 text-center">
+              <div className="card card-padding card-border card-border-blue card-hover text-center">
                 <div className="text-3xl font-bold text-ff-blue-600 dark:text-ff-blue-400 mb-2">20+</div>
                 <div className="text-sm text-ff-slate-600 dark:text-ff-slate-400">Games Mastered</div>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-green-200/30 dark:border-ff-green-600/30 text-center">
+              <div className="card card-padding card-border card-border-green card-hover text-center">
                 <div className="text-3xl font-bold text-ff-green-600 dark:text-ff-green-400 mb-2">100+</div>
                 <div className="text-sm text-ff-slate-600 dark:text-ff-slate-400">Artworks Created</div>
               </div>

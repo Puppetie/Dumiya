@@ -76,7 +76,7 @@ const Contact = ({ setActiveSection }) => {
             {/* Social Cards */}
             <div className="space-y-4">
               {socialLinks.slice(0, 3).map((social, index) => (
-                <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-red-200/30 dark:border-ff-red-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+                <div key={index} className="card card-padding card-border card-border-red card-hover">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-lg flex items-center justify-center">
                       <span className="text-2xl">{social.icon}</span>
@@ -87,7 +87,7 @@ const Contact = ({ setActiveSection }) => {
                     </div>
                   </div>
                 </div>
-            ))}
+              ))}
           </div>
         </div>
 
@@ -100,7 +100,7 @@ const Contact = ({ setActiveSection }) => {
             {/* Platform Cards */}
             <div className="space-y-4">
               {socialLinks.slice(3).map((social, index) => (
-                <div key={index} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-pink-200/30 dark:border-ff-pink-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+                <div key={index} className="card card-padding card-border card-border-pink card-hover">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center">
                       <span className="text-2xl">{social.icon}</span>
@@ -123,7 +123,7 @@ const Contact = ({ setActiveSection }) => {
             
             {/* Contact Cards */}
             <div className="space-y-4">
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-gold-200/30 dark:border-ff-gold-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-gold card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">schedule</span>
@@ -138,7 +138,7 @@ const Contact = ({ setActiveSection }) => {
                 </p>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-blue-200/30 dark:border-ff-blue-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-blue card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-blue-500 to-ff-blue-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">favorite</span>
@@ -153,7 +153,7 @@ const Contact = ({ setActiveSection }) => {
                 </p>
               </div>
 
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-ff-green-200/30 dark:border-ff-green-600/30 hover:scale-105 transition-all duration-300 shadow-lg">
+              <div className="card card-padding card-border card-border-green card-hover">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-ff-green-500 to-ff-green-600 rounded-lg flex items-center justify-center">
                     <span className="material-icons text-white text-xl">language</span>

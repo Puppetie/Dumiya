@@ -19,11 +19,23 @@ export const ThemeProvider = ({ children }) => {
       // Silently fail if localStorage is not available
     }
     
+    const root = document.documentElement
+
+    // Add smooth transition wrapper
+    root.classList.add('theme-transition')
+
     if (isDark) {
-      document.documentElement.classList.add('dark')
+      root.classList.add('dark')
     } else {
-      document.documentElement.classList.remove('dark')
+      root.classList.remove('dark')
     }
+
+    // Remove the helper class after the transition completes
+    const timeoutId = window.setTimeout(() => {
+      root.classList.remove('theme-transition')
+    }, 500)
+
+    return () => window.clearTimeout(timeoutId)
   }, [isDark])
 
   const toggleTheme = () => {
