@@ -97,19 +97,32 @@ const Header = ({ activeSection, setActiveSection }) => {
             {navItems.map((item) => (
               <div key={item.id} className="group relative">
                 {/* Individual book spine for each nav item */}
-                <div className={`w-16 h-16 bg-ff-slate-800 dark:bg-ff-red-900 shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] rounded-r-lg ${
-                  activeSection === item.id 
-                    ? 'shadow-xl shadow-ff-red-300/50 dark:shadow-ff-red-400/40' 
-                    : 'group-hover:bg-ff-red-600 dark:group-hover:bg-ff-red-700'
-                }`}></div>
+                <div 
+                  className={`w-16 h-16 shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] rounded-r-lg ${
+                    activeSection === item.id 
+                      ? 'shadow-xl shadow-rose-300/50 dark:shadow-slate-400/40' 
+                      : 'group-hover:bg-gray-300 dark:group-hover:bg-slate-700'
+                  }`}
+                  style={{
+                    backgroundColor: 'rgb(248 250 252)' // slate-50 - very light
+                  }}
+                  data-theme="light"
+                ></div>
                 
                 {/* Page that peeks out */}
                 <button
-                  className={`nav-button absolute left-0 top-0 w-16 h-16 bg-ff-slate-700 dark:bg-ff-red-800 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer rounded-md focus:outline-none ${
+                  className={`nav-button absolute left-0 top-0 w-16 h-16 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer rounded-md focus:outline-none ${
                     activeSection === item.id 
-                      ? 'scale-110 bg-gradient-to-br from-ff-red-200 to-ff-pink-200 dark:from-ff-red-700 dark:to-ff-pink-700 shadow-lg' 
-                      : 'hover:scale-125 hover:bg-ff-slate-600 dark:hover:bg-ff-red-700 hover:shadow-xl hover:shadow-ff-red-300/30 dark:hover:shadow-ff-red-400/30'
+                      ? 'scale-110 shadow-lg ring-2 ring-rose-200 dark:ring-slate-400' 
+                      : 'hover:scale-125 hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-slate-400/30'
                   }`}
+                  style={{
+                    backgroundColor: activeSection === item.id 
+                      ? (isDark ? 'rgb(51 65 85)' : 'rgb(254 226 226)') 
+                      : (isDark ? 'rgb(30 41 59)' : 'rgb(248 250 252)')
+                  }}
+                  data-theme="light"
+                  data-dark-bg="rgb(30 41 59)" // slate-800 - darker
                   onClick={() => scrollToSection(item.id)}
                   onKeyDown={(e) => handleKeyDown(e, item.id)}
                   onMouseEnter={() => setHoveredItem(item.id)}
@@ -122,20 +135,20 @@ const Header = ({ activeSection, setActiveSection }) => {
                   {/* Enhanced active indicator */}
                   {activeSection === item.id && (
                     <>
-                      <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 dark:from-ff-red-300 dark:to-ff-pink-300 rounded-full shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
-                      <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 dark:from-ff-red-300 dark:to-ff-pink-300 rounded-full animate-ping opacity-60 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                      <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-rose-500 to-pink-500 dark:from-rose-400 dark:to-pink-400 rounded-full shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                      <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-rose-500 to-pink-500 dark:from-rose-400 dark:to-pink-400 rounded-full animate-ping opacity-60 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                                               {/* Enhanced glow effect */}
-                        <div className="absolute inset-0 rounded-md bg-gradient-to-r from-ff-red-400/10 to-ff-pink-400/10 dark:from-ff-red-300/10 dark:to-ff-pink-300/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                        <div className="absolute inset-0 rounded-md bg-gradient-to-r from-rose-500/10 to-pink-500/10 dark:from-rose-400/10 dark:to-pink-400/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                         {/* Dark mode glow effect */}
-                        <div className="absolute inset-0 rounded-md dark:bg-gradient-to-r dark:from-ff-red-400/5 dark:to-ff-pink-400/5 dark:shadow-[0_0_20px_rgba(239,68,68,0.3)] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                        <div className="absolute inset-0 rounded-md dark:bg-gradient-to-r dark:from-rose-400/5 dark:to-pink-400/5 dark:shadow-[0_0_20px_rgba(244,63,94,0.3)] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                     </>
                   )}
                   <div className="flex items-center justify-center h-full">
                     <div className="flex flex-col items-center">
                       <span className={`material-icons text-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         activeSection === item.id 
-                          ? 'scale-125 opacity-100 text-ff-red-500 dark:text-ff-red-400' 
-                          : 'opacity-50 text-ff-slate-700 dark:text-ff-slate-300 group-hover:opacity-100 group-hover:scale-125 group-hover:text-ff-red-400 dark:group-hover:text-ff-red-300'
+                          ? 'scale-125 opacity-100 text-rose-600 dark:text-rose-400' 
+                          : 'opacity-70 text-gray-600 dark:text-gray-300 group-hover:opacity-100 group-hover:scale-125 group-hover:text-rose-500 dark:group-hover:text-rose-300'
                       }`}>{item.icon}</span>
                     </div>
                   </div>
@@ -144,7 +157,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                 {/* Enhanced tooltip with better positioning */}
                 <div 
                   id={`tooltip-${item.id}`}
-                  className={`absolute left-20 top-0 bg-white/95 dark:bg-ff-slate-800/95 backdrop-blur-md px-4 py-3 rounded-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] pointer-events-none min-w-max z-50 ${
+                  className={`absolute left-20 top-0 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md px-4 py-3 rounded-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] pointer-events-none min-w-max z-50 ${
                     hoveredItem === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                   role="tooltip"
@@ -152,18 +165,18 @@ const Header = ({ activeSection, setActiveSection }) => {
                 >
                   <div className="flex items-center space-x-3 mb-2">
                     <span className="material-icons text-xl">{item.icon}</span>
-                    <div className="font-ui font-bold text-ff-slate-700 dark:text-ff-slate-200 text-lg">{item.label}</div>
+                    <div className="font-ui font-bold text-slate-700 dark:text-slate-200 text-lg">{item.label}</div>
                   </div>
-                  <p className="text-sm text-ff-slate-600 dark:text-ff-slate-300 font-body max-w-48 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 font-body max-w-48 leading-relaxed">
                     {item.description}
                   </p>
-                  <div className="mt-2 pt-2 border-t border-ff-red-100 dark:border-ff-red-700">
-                    <div className="text-xs text-ff-slate-500 dark:text-ff-slate-400 font-mono">
+                  <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                       {activeSection === item.id ? '📍 Active' : 'Click to navigate'}
                     </div>
                   </div>
                   {/* Tooltip arrow */}
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-white dark:bg-ff-slate-800 border-l border-b border-ff-red-200 dark:border-ff-red-600 rotate-45"></div>
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-white dark:bg-slate-800 border-l border-b border-slate-200 dark:border-slate-600 rotate-45"></div>
                 </div>
               </div>
             ))}
@@ -175,12 +188,23 @@ const Header = ({ activeSection, setActiveSection }) => {
       <div className="fixed top-4 right-4 z-[60] hidden lg:block">
         <button
           onClick={toggleTheme}
-          className="theme-button w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 dark:from-ff-red-600 dark:to-ff-pink-600 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg"
+          className="theme-button w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg ring-2 ring-rose-200 dark:ring-slate-400 hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
+          style={{
+            backgroundColor: isDark ? '#1e293b' : '#f8fafc'
+          }}
           title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         >
-          <div className="text-gray-900 dark:text-white text-xl material-icons" style={{ color: isDark ? 'white' : '#111827' }}>
-            {isDark ? 'light_mode' : 'dark_mode'}
+          <div className="text-xl material-icons transition-all duration-300">
+            {isDark ? (
+              <span className="text-yellow-500 hover:text-yellow-400" style={{ filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.5))' }}>
+                light_mode
+              </span>
+            ) : (
+              <span className="text-indigo-600 hover:text-indigo-500" style={{ filter: 'drop-shadow(0 0 8px rgba(79, 70, 229, 0.5))' }}>
+                dark_mode
+              </span>
+            )}
           </div>
         </button>
       </div>
@@ -213,21 +237,37 @@ const Header = ({ activeSection, setActiveSection }) => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={toggleTheme}
-                className="p-2 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 dark:from-ff-red-600 dark:to-ff-pink-600 border-2 border-ff-red-300 dark:border-ff-red-400 rounded-lg focus:outline-none"
+                className="p-2 border-2 border-rose-200 dark:border-slate-400 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
+                style={{
+                  backgroundColor: isDark ? '#1e293b' : '#f8fafc'
+                }}
                 title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               >
-                <span className="text-gray-900 dark:text-white text-xl material-icons" style={{ color: isDark ? 'white' : '#111827' }}>{isDark ? 'light_mode' : 'dark_mode'}</span>
+                <span className="text-xl material-icons transition-all duration-300">
+                  {isDark ? (
+                    <span className="text-yellow-500 hover:text-yellow-400" style={{ filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.5))' }}>
+                      light_mode
+                    </span>
+                  ) : (
+                    <span className="text-indigo-600 hover:text-indigo-500" style={{ filter: 'drop-shadow(0 0 8px rgba(79, 70, 229, 0.5))' }}>
+                      dark_mode
+                    </span>
+                  )}
+                </span>
               </button>
 
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 hover:bg-ff-red-100 dark:hover:bg-ff-red-900 transition-colors border border-transparent hover:border-ff-red-300 dark:hover:border-ff-red-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-ff-red-400 focus:ring-offset-2"
+                className="p-2 border-2 border-rose-200 dark:border-slate-400 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30 focus:ring-2 focus:ring-rose-400 focus:ring-offset-2"
+                style={{
+                  backgroundColor: isDark ? '#1e293b' : '#f8fafc'
+                }}
                 aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileMenuOpen}
               >
-                <span className="text-xl material-icons">{isMobileMenuOpen ? 'close' : 'menu'}</span>
+                <span className="text-xl material-icons text-rose-600 dark:text-rose-400">{isMobileMenuOpen ? 'close' : 'menu'}</span>
               </button>
             </div>
           </div>
@@ -250,21 +290,21 @@ const Header = ({ activeSection, setActiveSection }) => {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full flex items-center space-x-3 px-4 py-3 transition-all duration-200 font-ui border rounded-lg focus:outline-none focus:ring-2 focus:ring-ff-red-400 focus:ring-offset-2 ${
+                    className={`w-full flex items-center space-x-3 px-4 py-3 transition-all duration-200 font-ui border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 ${
                       activeSection === item.id
-                        ? 'bg-gradient-to-r from-ff-red-500 to-ff-pink-500 text-white border-ff-red-500 shadow-lg ring-2 ring-ff-red-300 ring-opacity-50 scale-105'
-                        : 'text-ff-slate-600 dark:text-ff-slate-300 border-transparent hover:border-ff-red-300 dark:hover:border-ff-red-600 hover:bg-ff-red-50 dark:hover:bg-ff-red-900/20'
+                        ? 'bg-gradient-to-r from-rose-600 to-pink-600 dark:from-slate-700 dark:to-slate-600 text-white border-rose-500 shadow-lg ring-2 ring-rose-200 ring-opacity-50 scale-105'
+                        : 'text-gray-600 dark:text-gray-200 border-transparent hover:border-rose-300 dark:hover:border-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20'
                     }`}
                     aria-label={`Navigate to ${item.label} section`}
                   >
                     <span className={`material-icons transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      activeSection === item.id ? 'scale-110 opacity-100 text-ff-red-500 dark:text-ff-red-400' : 'opacity-60 text-ff-slate-700 dark:text-ff-slate-300 hover:opacity-100'
+                      activeSection === item.id ? 'scale-110 opacity-100 text-white dark:text-white' : 'opacity-70 text-gray-500 dark:text-gray-300 hover:opacity-100'
                     }`}>{item.icon}</span>
                     <span className={`font-medium ${
                       activeSection === item.id ? 'font-bold' : ''
                     }`}>{item.label}</span>
                     {activeSection === item.id && (
-                      <span className="ml-auto text-ff-red-200 material-icons">location_on</span>
+                      <span className="ml-auto text-rose-200 material-icons">location_on</span>
                     )}
                   </button>
                 ))}
